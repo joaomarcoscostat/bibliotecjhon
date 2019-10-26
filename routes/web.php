@@ -11,7 +11,8 @@
 |
 */
 
-Route::resource('/livros','LivroController');
+
+Route::resource('/livros','Livrocontroller');
 
 Route::get('/', function () {
     return view('welcome');

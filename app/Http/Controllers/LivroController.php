@@ -22,7 +22,7 @@ class LivroController extends Controller
     public function index()
     {
         $title='Estante de Livros';   
-        $livros = Livro::get();
+        $livros = Livro::all();
         return view('livro', compact('livros','title'));
         
     }
@@ -46,22 +46,45 @@ class LivroController extends Controller
      */
     public function store(Request $request)
     {
+      
         $request->validate([
             'nome'=>'required',
             'autor'=>'required',
             'descricao'=>'required',
+            'capa'=>'required',
+            
             
         ]);
 
-        $livro = new Livro([
-            'nome' => $request->get('nome'),
-            'autor' => $request->get('autor'),
-            'capa' => $request->get('file'),
-            'descricao' => $request->get('descricao'),
+        $valid=$reuqest->validate();
+        if($valid->fails()){
+            return 'oi';
+        }
+
+        
+        
+
+       
+
+        // $livro = new Livro([
+        //     'nome' => $request->get('nome'),
+        //     'autor' => $request->get('autor'),
+        //     'descricao' => $request->get('descricao'), 
+        //     'capa'=>$request->input('capa'),
+
+
+        // ]);
+
+       
+            $dataForm=$request->all();
+            // dd($dataForm);
+            $dataForm['capa']='imagens/capas/'.$request['capa'];
             
-        ]);
-        $livro->save();
-        return redirect('/livros')->with('success', 'Contact saved!');
+          
+
+            Livro::create($dataForm);
+
+             return redirect('/livros')->with('success', 'Livro Salvo!');
     }
 
     /**
