@@ -9,7 +9,7 @@
             <table class="table table-striped table-dark" >
                 <tr>
                     <th style="width:50px">Capa</th>
-                    <th style="width:900px">Descrição</th>
+                    <th style="width:1000px">Descrição</th>
                     <th>Autor</th>
                     <th>Editar</th>
                     <th>Excluir</th>
@@ -23,11 +23,21 @@
                         <td><img class="imagem" src="{{$livro->capa}}"> </td>
                         <td>{{$livro->descricao}}</td>
                         <td>{{$livro->autor}}</td>
-                        <td><a href=""><img src="icons/png/pencil-2x.png" alt="icon name"></a></td>
-                        <td><a href=""><img src="icons/png/trash-2x.png" alt="icon name" ></a><td>
+                        <td>
+                        <form style="width:5px">
+                                <button type="submit" value="remover" class="buttonIconPencil"></button>
+                        </form>
+                        </td>
                         
+                        <td>
+                        <form style="width:5px" action="{{ route('livros.destroy', $livro->id) }}" class="form-horizontal" method="post" style="display: inline-block">
+                                {!! csrf_field() !!}
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" value="remover" class="buttonIconTrash"></button>
+                        </form>
+                        <td>
 
-                     </tr> 
+                    </tr> 
                     
                 @empty
 

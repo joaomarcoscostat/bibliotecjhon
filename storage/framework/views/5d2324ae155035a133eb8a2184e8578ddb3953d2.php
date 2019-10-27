@@ -7,7 +7,7 @@
             <table class="table table-striped table-dark" >
                 <tr>
                     <th style="width:50px">Capa</th>
-                    <th style="width:900px">Descrição</th>
+                    <th style="width:1000px">Descrição</th>
                     <th>Autor</th>
                     <th>Editar</th>
                     <th>Excluir</th>
@@ -21,11 +21,22 @@
                         <td><img class="imagem" src="<?php echo e($livro->capa); ?>"> </td>
                         <td><?php echo e($livro->descricao); ?></td>
                         <td><?php echo e($livro->autor); ?></td>
-                        <td><a href=""><img src="icons/png/pencil-2x.png" alt="icon name"></a></td>
-                        <td><a href=""><img src="icons/png/trash-2x.png" alt="icon name" ></a><td>
+                        <td>
+                        <form style="width:5px">
+                                <button type="submit" value="remover" class="buttonIconPencil"></button>
+                        </form>
+                        </td>
                         
+                        <td>
+                        <form style="width:5px" action="<?php echo e(route('livros.destroy', $livro->id)); ?>" class="form-horizontal" method="post" style="display: inline-block">
+                                <?php echo csrf_field(); ?>
 
-                     </tr> 
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" value="remover" class="buttonIconTrash"></button>
+                        </form>
+                        <td>
+
+                    </tr> 
                     
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 

@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="http://localhost/bibliotecajhon/public/livros">Livros</a>
+                    <a href="http://bibliotecjhon:8080/livros">Livros</a>
                     
                 </div>
             </div>

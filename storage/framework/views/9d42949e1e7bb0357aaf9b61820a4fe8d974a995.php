@@ -109,6 +109,22 @@
                 display: inline-block;
                 font-size: 16px;
              }
+             
+             .buttonIconTrash{
+
+                 background-image:url("icons/png/trash-2x.png");
+                 background-repeat:no-repeat;
+                 background-position:center;
+                 background-color:rgba( 0, 0, 0, 0.0 );
+             }
+             .buttonIconPencil{
+
+                background-image:url("icons/png/pencil-2x.png");
+                background-repeat:no-repeat;
+                background-position:center;
+                background-color:rgba( 0, 0, 0, 0.0 );
+            }
+
              th,tr{
                 
                 color:#DEB887;
@@ -121,7 +137,7 @@
                  width:540px; 
              }
 
-            input{
+            .input{
                 margin-bottom:10px;
                 width: 540px;
                 
